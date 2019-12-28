@@ -1,5 +1,6 @@
-const { alternatingConsonantsAndVowelsRegex: alternatingConsonantsAndVowelsRegex } = require('../src/rules');
-const regex = alternatingConsonantsAndVowelsRegex;
+const { rules, buildRegex } = require('../src/rules');
+
+const regex = buildRegex([rules.alternatingConsonantsAndVowels]);
 
 describe('Alternating Vowels and Consonants Rule Regex', () => {
   
