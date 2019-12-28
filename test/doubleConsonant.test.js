@@ -1,28 +1,49 @@
-const { rules } = require('../src/rules');
+const { rules, buildRegex } = require('../src/rules');
 const regex = buildRegex([rules.doubleConsonant]);
 
-
-describe('Alternating Vowels and Consonants Rule Regex', () => {
+describe('Double Consonants', () => {
+  test('Match two consonants in a row', () => {
+    const testCases = [
+      "ll",
+      "gg",
+    ];
   
-  test('double consonants', () => {
-    const testDoubleConsonant = "ll";
-    const testConsonantVowel = "lo";
-    const testVowelConsonant = "ol";
-    const testDoubleVowel = "yy";
-
-    expect(regex.test(testDoubleConsonant)).toBe(true);
-    expect(regex.test(testConsonantVowel)).toBe(false);
-    expect(regex.test(testVowelConsonant)).toBe(false);
-    expect(regex.test(testDoubleVowel)).toBe(false);
+    testCases.forEach((testCase) => {
+      expect(regex.test(testCase)).toBe(true);
+    });
   });
+  test('Do not match other cases', () => {
+    const testCases = [
+      "yy",
+      "ga",
+      "ol"
+    ];
 
-  test('First character in the next set must follow alternating vowel/consonant rule', () => {
-    const testDoubleConsonantVowel = "bba";
-    const testDoubleConsonantConsonant = "bbg";
-    const testTripleConsonant = "ggg";
+    testCases.forEach((testCase) => {
+      expect(regex.test(testCase)).toBe(false);
+    });
+  
+  });
+  describe('The first letter in the next combination must match the alternating vowel/consonant rule', () => {  
+    test('Match vowel/consonant rule', () => {
+      const testCases = [
+        "lla"
+      ];
 
-    expect(regex.test(testDoubleConsonantVowel)).toBe(true);
-    expect(regex.test(testDoubleConsonantConsonant)).toBe(false);
-    expect(regex.test(testTripleConsonant)).toBe(false);
+      testCases.forEach((testCase) => {
+        expect(regex.test(testCase)).toBe(true);
+      });
+    });
+
+    test('Does not match vowel consonant rule', () => {
+      const testCases = [
+        "zzz",
+        "ppg"
+      ];
+
+      testCases.forEach((testCase) => {
+        expect(regex.test(testCase)).toBe(false);
+      });
+    });
   });
 });
