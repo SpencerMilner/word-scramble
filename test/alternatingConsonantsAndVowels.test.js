@@ -1,30 +1,52 @@
 const { rules, buildRegex } = require('../src/rules');
-
 const regex = buildRegex([rules.alternatingConsonantsAndVowels]);
 
-describe('Alternating Vowels and Consonants Rule Regex', () => {
+describe('Alternating Vowels and Consonants', () => {
+  test('Match when vowels and consanants alternate', () => {
+    const testCases = [
+      "ab",
+      "gu",
+    ];
   
-  test('Vowels and consonants alternate', () => {
-    const testVowelConsonant = "ab";
-    const testConsonantVowel = "gu";
-    const testDoubleVowel = "yo";
-    const testDoubleConsonant = "ll";
-
-    expect(regex.test(testVowelConsonant)).toBe(true);
-    expect(regex.test(testConsonantVowel)).toBe(true);
-    expect(regex.test(testDoubleVowel)).toBe(false);
-    expect(regex.test(testDoubleConsonant)).toBe(false);
+    testCases.forEach((testCase) => {
+      expect(regex.test(testCase)).toBe(true);
+    });
   });
+  test('Do not match other cases', () => {
+    const testCases = [
+      "yo",
+      "ll"
+    ];
 
-  test('First character in the next set must follow alternating vowel/consonant rule', () => {
-    const testVowelConsonant = "aba";
-    const testConsonantVowel = "kyg";
-    const testEndWithDoubleVowel = "baa";
-    const testEndWithDoubleConsonant = "app";
+    testCases.forEach((testCase) => {
+      expect(regex.test(testCase)).toBe(false);
+    });
+  
+  });
+  describe('The first letter in the next combination must match the alternating vowel/consonant rule', () => {  
+    test('Match vowel/consonant rule', () => {
+      const testCases = [
+        "aba",
+        "kyg",
+        "abyg"
+      ];
 
-    expect(regex.test(testVowelConsonant)).toBe(true);
-    expect(regex.test(testConsonantVowel)).toBe(true);
-    expect(regex.test(testEndWithDoubleVowel)).toBe(false);
-    expect(regex.test(testEndWithDoubleConsonant)).toBe(false);
+      testCases.forEach((testCase) => {
+        expect(regex.test(testCase)).toBe(true);
+      });
+    });
+
+    test('Does not match vowel consonant rule', () => {
+      const testCases = [
+        "baa",
+        "app",
+        "agga"
+      ];
+
+      testCases.forEach((testCase) => {
+        expect(regex.test(testCase)).toBe(false);
+      });
+    });
   });
 });
+
