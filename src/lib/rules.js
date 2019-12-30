@@ -1,5 +1,5 @@
-const beginRegex = new RegExp(/^/);
-const endRegex = new RegExp(/(([a-z])(?=($)))?$/);
+const beginRegex = new RegExp(/^/)
+const endRegex = new RegExp(/(([a-z])(?=($)))?$/)
 
 const rules = {
   alternatingConsonantsAndVowels: new RegExp(/((([aeiouy])((?=([^aeiouy]))|$))|(([^aeiouy])((?=([aeiouy]))|$)))/),
@@ -22,18 +22,18 @@ const rules = {
 }
 
 const buildRegex = (rulesList) => {
-  let currRegex = beginRegex.source;
+  let currRegex = beginRegex.source
 
-  if(rulesList === undefined){
-    rulesList = Object.values(rules);
+  if (rulesList === undefined) {
+    rulesList = Object.values(rules)
   }
-  
-  currRegex += "(" + rulesList[0].source;
 
-  for(let i = 1; i < rulesList.length; i++){
-    currRegex += "|" + rulesList[i].source;
+  currRegex += '(' + rulesList[0].source
+
+  for (let i = 1; i < rulesList.length; i++) {
+    currRegex += '|' + rulesList[i].source
   }
-  currRegex += ")+" + endRegex.source;
+  currRegex += ')+' + endRegex.source
   return new RegExp(currRegex, 'i')
 }
 
