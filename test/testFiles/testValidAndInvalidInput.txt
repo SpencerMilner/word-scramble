@@ -4,7 +4,7 @@ ONYRI IRONY
 IRONY IRONY
 INOYR IRONY
 IOYRN IRONY
-%%%%% %%%%%
+%%B%% %%A%%
 &*%#$
 ABC
 abc bac
@@ -13,3 +13,4 @@ u u
 MaPs SpAm
 cat tac
 monkey cow
+monkeys monkey

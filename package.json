@@ -1,12 +1,12 @@
 {
-  "name": "word-scramble-score",
-  "version": "1.0.0",
+  "name": "word-scramble",
+  "version": "1.0.1",
   "description": "Likewise coding challenge",
   "bin": {
     "word-scramble": "./src/cli/bin/word-scramble.js",
     "word-scramble-score": "./src/cli/bin/word-scramble-score.js"
   },
-  "repository": "https://github.com/SpencerMilner/word-scramble-score",
+  "repository": "https://github.com/SpencerMilner/word-scramble",
   "author": "Spencer Milner",
   "license": "MIT",
   "scripts": {
