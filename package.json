@@ -2,7 +2,10 @@
   "name": "word-scramble-score",
   "version": "1.0.0",
   "description": "Likewise coding challenge",
-  "main": "index.js",
+  "bin": {
+    "word-scramble": "./src/cli/bin/word-scramble.js",
+    "score": "./src/cli/bin/score.js"
+  },
   "repository": "https://github.com/SpencerMilner/word-scramble-score",
   "author": "Spencer Milner",
   "license": "MIT",
@@ -10,6 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "commander": "^4.0.1",
     "jest": "^24.9.0",
     "ramda": "^0.26.1"
   }
