@@ -4,7 +4,7 @@
   "description": "Likewise coding challenge",
   "bin": {
     "word-scramble": "./src/cli/bin/word-scramble.js",
-    "score": "./src/cli/bin/score.js"
+    "word-scramble-score": "./src/cli/bin/word-scramble-score.js"
   },
   "repository": "https://github.com/SpencerMilner/word-scramble-score",
   "author": "Spencer Milner",
@@ -14,8 +14,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "commander": "^4.0.1",
-    "ramda": "^0.26.1"
+    "commander": "^4.0.1"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
