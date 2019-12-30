@@ -17,14 +17,14 @@ const run = () => {
   for (let i = 0; i < pairs.length; i++) {
     const pair = pairs[i].split(' ')
     if (pair.length !== 2) {
-      console.log(`
-        ------------------------------------------------------------------------------------------
-        Invalid format. Your input should be a list where each element is a scramble followed 
-        by a space followed by the actual word, with one entry per line:\n\n
-        MAPS SPAM
-        RIONY IRONY
-        ------------------------------------------------------------------------------------------
-      `)
+      console.log(
+        '------------------------------------------------------------------------------------------\n' +
+        'Invalid format. Your input should be a list where each element is a scramble followed by a\n' +
+        'space followed by the actual word, with one entry per line:\n\n' +
+        'MAPS SPAM\n' +
+        'RIONY IRONY\n' +
+        '------------------------------------------------------------------------------------------'
+      )
       continue
     };
     const scrambledWord = pair[0]
@@ -62,9 +62,8 @@ const run = () => {
   process.exit()
 }
 
-// parse program args
 program
-  .name('score')
+  .name('word-scramble score')
   .parse(process.argv)
 
 run()
